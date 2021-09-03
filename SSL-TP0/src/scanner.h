@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-extern char lexemaLeido[200];
+char lexemaLeido[200];
 
 enum{
    FIN_DE_TEXTO = EOF,
