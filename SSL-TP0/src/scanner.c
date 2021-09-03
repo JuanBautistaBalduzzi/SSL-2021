@@ -25,17 +25,15 @@ int get_token()
             if(!isspace((char)caracter_leido))
             {
                int i=0;
-               lexemaLeido[i]= caracter_leido;
-               caracter_leido=getchar();
-               while(caracter_leido != IDENTIFICADOR && caracter_leido != IDENTIFICADOR
+
+               while(caracter_leido != IDENTIFICADOR && caracter_leido != FIN_DE_TEXTO
                      && !isspace((char)caracter_leido))
                {
-                  i++;
                   lexemaLeido[i]= caracter_leido;
                   caracter_leido=getchar();
+                  i++;
                }
-               i++;
-               lexemaLeido[i]='\0';
+               lexemaLeido[i++]='\0';
                ungetc(caracter_leido,stdin);
                return CADENA;
             }
