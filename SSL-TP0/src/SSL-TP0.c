@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "scanner.h"
-
+char lexemaLeido[200];
 
 int main(void) {
    int token=get_token();

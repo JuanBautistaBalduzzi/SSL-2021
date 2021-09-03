@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <ctype.h>
 
-char lexemaLeido[200];
+
 
 enum{
    FIN_DE_TEXTO = EOF,

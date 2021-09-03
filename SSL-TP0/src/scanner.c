@@ -7,7 +7,7 @@ S* scanner.c
 #include "scanner.h"
 
 
-
+extern char lexemaLeido[200];
 int get_token()
 {
       int caracter_leido=getchar();
