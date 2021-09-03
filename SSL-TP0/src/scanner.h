@@ -11,17 +11,19 @@
 #include <stdio.h>
 #include <ctype.h>
 
+extern char lexemaLeido[200];
+
 enum{
    FIN_DE_TEXTO = EOF,
    IDENTIFICADOR = (int)',',
+   CADENA,
 };
 
 
 
-//version que usa la macro
-void get_token();
-//version que no utilizaria la macro si la saco
-void get_token_simplificada();
+
+int get_token();
+
 
 
 

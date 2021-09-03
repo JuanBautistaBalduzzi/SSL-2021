@@ -7,40 +7,42 @@ S* scanner.c
 #include "scanner.h"
 
 
-void get_token()
+
+int get_token()
 {
-   while(1)
-   {
       int caracter_leido=getchar();
 
       switch (caracter_leido) {
-         case IDENTIFICADOR:
-            printf("\nIdentificador: %c ",(char)caracter_leido);
+
+      case IDENTIFICADOR:
+            return IDENTIFICADOR;
 
             break;
-         case FIN_DE_TEXTO:
-            printf("\nFin De Texto: ");
-            return;
+         case FIN_DE_TEXTO:;
+            return FIN_DE_TEXTO;
 
          default:
             if(!isspace((char)caracter_leido))
             {
-               printf("\nCadena: %c",(char)caracter_leido);
-                caracter_leido=getchar();
-               while(caracter_leido!=IDENTIFICADOR && caracter_leido!=FIN_DE_TEXTO
-                     && !(isspace((char)caracter_leido)))
-                     {
-                       printf("%c",(char)caracter_leido);
-                       caracter_leido=getchar();
-                     }
-               if(!isspace((char)caracter_leido))
-                  continue;
+               int i=0;
+               lexemaLeido[i]= caracter_leido;
+               caracter_leido=getchar();
+               while(caracter_leido != IDENTIFICADOR && caracter_leido != IDENTIFICADOR
+                     && !isspace((char)caracter_leido))
+               {
+                  i++;
+                  lexemaLeido[i]= caracter_leido;
+                  caracter_leido=getchar();
+               }
+               i++;
+               lexemaLeido[i]='\0';
+               ungetc(caracter_leido,stdin);
+               return CADENA;
             }
-            break;
+            return -20;
       }
 
-   }
-
 }
+
 
 
